@@ -1,0 +1,23 @@
+{
+  "name": "assignment04",
+  "version": "1.0.0",
+  "description": "zadatak",
+  "keywords": [
+    "d"
+  ],
+  "homepage": "https://github.com/Programerko05/assignment04#readme",
+  "bugs": {
+    "url": "https://github.com/Programerko05/assignment04/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Programerko05/assignment04.git"
+  },
+  "license": "ISC",
+  "author": "dragan",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1 -p 5500"
+  }
+}
