@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background-color: #fafafa;
   color: #18181b;
   line-height: 1.6;
@@ -228,5 +228,129 @@ main {
 }
 
 .add-to-cart-btn:hover {
+  background-color: #2c2c31;
+}
+
+.goback a:link,
+.goback a:visited {
+  font-size: 0.9rem;
+  color: #71717a;
+  font-weight: 500;
+}
+
+.goback a:hover,
+.goback a:active {
+  color: #09090b;
+}
+
+.product-detail-container {
+  background-color: #fff;
+  border: 1px solid #e4e4e7;
+  border-radius: 10px;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.img-warpper {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  background-color: #f4f4f5;
+}
+
+.detail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detail-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #09090b;
+  line-height: 1.5;
+}
+
+.detail-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #18181b;
+}
+
+.detail-description {
+  font-size: 1rem;
+  color: #52525b;
+  letter-spacing: 0.02rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid #e4e4e7;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.option-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  color: #3f3f46;
+}
+
+.option-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.option-btn {
+  padding: 0.6rem 1rem;
+  border: 1px solid #d4d4d8;
+  border-radius: 7px;
+  color: #09090b;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: #fff;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+  background-color: #f4f4f5;
+  border-color: #09090b;
+}
+
+.option-btn.active {
+  background-color: #09090b;
+  color: #ffff;
+  border-color: #09090b;
+  font-weight: 600;
+}
+
+.btn-primary {
+  width: 100%;
+  background-color: #09090b;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  padding: 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+}
+
+.btn-primary:hover {
   background-color: #2c2c31;
 }

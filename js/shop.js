@@ -5,7 +5,8 @@ let products = [
     price: 29.99,
     colors: ["Black", "White", "Blue"],
     sizes: ["S", "M", "L"],
-    desciption: "",
+    desciption:
+      "Crafted from 100% organic 280gsm combed cotton. Features a relaxed drop-shoulder silhouette, durable rib collar, and pre-shrunk finish for everyday comfort.",
     image: "images/tshirt.png",
   },
   {
@@ -14,7 +15,8 @@ let products = [
     price: 199.99,
     colors: ["Black", "White", "Blue"],
     sizes: ["S", "M", "L"],
-    desciption: "",
+    desciption:
+      "Single-breasted wool-blend overcoat engineered with structured shoulders, notch lapels, and deep side welt pockets.",
     image: "images/coat.png",
   },
   {
@@ -23,7 +25,8 @@ let products = [
     price: 69.99,
     colors: ["Black", "White", "Blue"],
     sizes: ["S", "M", "L"],
-    desciption: "",
+    desciption:
+      "Lightweight, breathable French flax linen shirt styled with a refined collar, curved hem, and mother-of-pearl buttons.",
     image: "images/shirt.png",
   },
   {
@@ -32,7 +35,8 @@ let products = [
     price: 89.99,
     colors: ["Black", "White", "Blue"],
     sizes: ["S", "M", "L"],
-    desciption: "",
+    desciption:
+      "Ultra-soft 100% extrafine Merino wool sweater. Micro-ribbed hem and cuffs provide structure while maintaining a plush drape.",
     image: "images/sweater.png",
   },
 
@@ -42,7 +46,8 @@ let products = [
     price: 79.99,
     colors: ["Black", "White", "Blue"],
     sizes: ["S", "M", "L"],
-    desciption: "",
+    desciption:
+      "Double-pleated wide leg trousers tailored in a fluid twill weave with side adjusters and hidden closure.",
     image: "images/trousers.png",
   },
   {
@@ -51,7 +56,8 @@ let products = [
     price: 59.99,
     colors: ["Black", "White", "Blue"],
     sizes: ["S", "M", "L"],
-    desciption: "",
+    desciption:
+      "Heavy French terry fleece hoodie treated with a custom wash process for an authentic worn-in texture.",
     image: "images/hoodie.png",
   },
 ];
@@ -95,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", (e) => {
       e.stopImmediatePropagation();
       counter++;
-      cartCounter.textContent = "Cart " + counter;
+      cartCounter.textContent = "Cart " + "(" + counter + ")";
     });
 
     card.appendChild(img);
