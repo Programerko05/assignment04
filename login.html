@@ -7,6 +7,7 @@
     <title>Login</title>
   </head>
   <body>
+    <!-- header -->
     <header>
       <div class="header-container">
         <a href="shop.html" class="logo">NOVA</a>
@@ -17,6 +18,45 @@
         </nav>
       </div>
     </header>
+
+    <!-- Glavni dio - login -->
+    <main class="login-page-main">
+      <!-- Login kartica -->
+      <div class="login-card">
+        <!-- login header -->
+        <div class="login-header">
+          <span class="logo">NOVA</span>
+          <h1>Login</h1>
+          <p>Enter your email and password to log in.</p>
+        </div>
+
+        <!-- login forma -->
+        <form id="login-form">
+          <!-- Grupa elemenata za unos emaila -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="name@gmail.com" />
+          </div>
+
+          <!-- Krupa elemenata za unso lozinke -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="*********" />
+          </div>
+
+          <!-- Dugme za submit forme -->
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <!-- Login status  -->
+        <p id="login-status"></p>
+
+        <!-- Footer  -->
+        <div class="login-footer">
+          <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+      </div>
+    </main>
     <script src="js/login.js"></script>
   </body>
 </html>

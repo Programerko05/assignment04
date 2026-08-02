@@ -1,3 +1,4 @@
+// Niz proizvoda
 let products = [
   {
     id: 1,
@@ -62,110 +63,145 @@ let products = [
   },
 ];
 
+// Globalni brojac za postavljanje broja proizvoda u korpi
 let counter = 0;
+
+//Cekamo da se DOM ucita
 document.addEventListener("DOMContentLoaded", () => {
+  // Selektovanje productContaienr i cartCounter
   const productContainer = document.getElementById("product-container");
   const cartCounter = document.getElementById("cart-counter");
 
+  productContainer.innerHTML = "";
+
+  // Uzimamo iz URL-a id proizvoda i pretvaramo ga u broj
   const url = new URLSearchParams(window.location.search);
   const productId = parseInt(url.get("id"), 10);
 
+  // Trazimo rpozivod koji smo selektovali
   const selectedProduct = products.filter(
     (product) => product.id === productId,
   );
 
-  const imgWarpper = document.createElement("div");
-  imgWarpper.className = "img-warpper";
+  // Kreiranje kontenjera za sliku
+  const imgWrapper = document.createElement("div");
+  imgWrapper.className = "img-wrapper";
 
+  // Kreiranje slike
   const img = document.createElement("img");
   img.src = selectedProduct[0].image;
   img.alt = selectedProduct[0].name;
   img.className = "detail-img";
-  imgWarpper.appendChild(img);
+  imgWrapper.appendChild(img);
 
+  // Kreiranje diva detailInfo kontenjera
   const detailInfo = document.createElement("div");
   detailInfo.className = "detail-info";
 
+  // Ime proizvoda
   const productName = document.createElement("h1");
   productName.className = "detail-title";
   productName.textContent = selectedProduct[0].name;
 
+  // Cijena proizvoda
   const price = document.createElement("p");
   price.className = "detail-price";
   price.textContent = "$" + selectedProduct[0].price;
 
+  // Opis proizvoda
   const description = document.createElement("p");
   description.className = "detail-description";
   description.textContent = selectedProduct[0].desciption;
 
+  // Kreiranje kontenjera za izbor boje
   const colorGroup = document.createElement("div");
   colorGroup.className = "option-group";
 
+  // Kreiranje label-a
   const colorLabel = document.createElement("label");
   colorLabel.className = "option-label";
   colorLabel.textContent = "Select Color:";
 
+  // Color kontenjer
   const colorContainer = document.createElement("div");
   colorContainer.className = "option-buttons";
 
+  // Izabrana boja
   let chosenColor = selectedProduct[0].colors[0];
 
+  // Prolazimo kroz niz boja izabranog proizvoda
   selectedProduct[0].colors.forEach((color, index) => {
+    // Kreiramo dugme za svaku boju
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = `option-btn ${index === 0 ? "active" : ""}`;
     btn.textContent = color;
+    // Osluskujemo klik na svako dugme i uklanjamo klasu active i dodajemo je samo na dugme koje smo treunto kliknuli
     btn.addEventListener("click", () => {
       colorContainer.querySelectorAll(".option-btn").forEach((btn) => {
         btn.classList.remove("active");
-        chosenColor = color;
       });
+      chosenColor = color;
       btn.classList.add("active");
     });
+    // Renderujemo dugme u kontenjeru za boje
     colorContainer.appendChild(btn);
   });
 
+  // Dodavanje color label i colorContainer u colorGroup
   colorGroup.appendChild(colorLabel);
   colorGroup.appendChild(colorContainer);
 
+  // Kreiranje kontenjera za izbor velicine
   const sizeGroup = document.createElement("div");
   sizeGroup.className = "option-group";
 
+  // Kreiranje label-a
   const sizeLabel = document.createElement("label");
   sizeLabel.className = "option-label";
   sizeLabel.textContent = "Select Size: ";
 
+  // Size kontenjer
   const sizeContainer = document.createElement("div");
   sizeContainer.className = "option-buttons";
 
-  let choosenSize = selectedProduct[0].sizes[0];
+  // Izabrana velicina
+  let chosenSize = selectedProduct[0].sizes[0];
 
+  // Prolazimo kroz niz velicina izabranog proizvoda
   selectedProduct[0].sizes.forEach((size, index) => {
+    // Kreiramo dugme za svaku velicinu
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = `option-btn ${index === 0 ? "active" : ""}`;
     btn.textContent = size;
+    // Osluskujemo klik na svako dugme i uklanjamo klasu active i dodajemo je samo na dugme koje smo treunto kliknuli
     btn.addEventListener("click", () => {
       sizeContainer.querySelectorAll(".option-btn").forEach((btn) => {
         btn.classList.remove("active");
-        choosenSize = size;
       });
+      chosenSize = size;
       btn.classList.add("active");
     });
+    // Renderujemo dugme u kontenjeru za velicine
     sizeContainer.appendChild(btn);
   });
+  // Dodavanje size label i SizeContainer u sizeGroup
   sizeGroup.appendChild(sizeLabel);
   sizeGroup.appendChild(sizeContainer);
 
+  // Kreiranje dugmeta za dodavanje u korpu
   const addToCartBtn = document.createElement("button");
   addToCartBtn.className = "btn btn-primary full-width";
   addToCartBtn.textContent = "Add to Cart";
 
+  // Osluskujemo klik na dugme i povecavamo broj prozivoda u korpi
   addToCartBtn.addEventListener("click", (e) => {
     counter++;
     cartCounter.textContent = "Cart " + "(" + counter + ")";
   });
 
+  // Dodavanje svih inforamcija u detailInfo
   detailInfo.appendChild(productName);
   detailInfo.appendChild(price);
   detailInfo.appendChild(description);
@@ -173,6 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
   detailInfo.appendChild(sizeGroup);
   detailInfo.appendChild(addToCartBtn);
 
-  productContainer.appendChild(imgWarpper);
+  // Dodavanje slike i informacija o proizvodu u productContainer
+  productContainer.appendChild(imgWrapper);
   productContainer.appendChild(detailInfo);
 });

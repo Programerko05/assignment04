@@ -1,3 +1,4 @@
+// Niz sa proizvodima
 let products = [
   {
     id: 1,
@@ -5,7 +6,7 @@ let products = [
     price: 29.99,
     colors: ["Black", "White", "Blue"],
     sizes: ["S", "M", "L"],
-    desciption:
+    descrption:
       "Crafted from 100% organic 280gsm combed cotton. Features a relaxed drop-shoulder silhouette, durable rib collar, and pre-shrunk finish for everyday comfort.",
     image: "images/tshirt.png",
   },
@@ -15,7 +16,7 @@ let products = [
     price: 199.99,
     colors: ["Black", "White", "Blue"],
     sizes: ["S", "M", "L"],
-    desciption:
+    description:
       "Single-breasted wool-blend overcoat engineered with structured shoulders, notch lapels, and deep side welt pockets.",
     image: "images/coat.png",
   },
@@ -25,7 +26,7 @@ let products = [
     price: 69.99,
     colors: ["Black", "White", "Blue"],
     sizes: ["S", "M", "L"],
-    desciption:
+    description:
       "Lightweight, breathable French flax linen shirt styled with a refined collar, curved hem, and mother-of-pearl buttons.",
     image: "images/shirt.png",
   },
@@ -35,7 +36,7 @@ let products = [
     price: 89.99,
     colors: ["Black", "White", "Blue"],
     sizes: ["S", "M", "L"],
-    desciption:
+    description:
       "Ultra-soft 100% extrafine Merino wool sweater. Micro-ribbed hem and cuffs provide structure while maintaining a plush drape.",
     image: "images/sweater.png",
   },
@@ -46,7 +47,7 @@ let products = [
     price: 79.99,
     colors: ["Black", "White", "Blue"],
     sizes: ["S", "M", "L"],
-    desciption:
+    description:
       "Double-pleated wide leg trousers tailored in a fluid twill weave with side adjusters and hidden closure.",
     image: "images/trousers.png",
   },
@@ -56,18 +57,22 @@ let products = [
     price: 59.99,
     colors: ["Black", "White", "Blue"],
     sizes: ["S", "M", "L"],
-    desciption:
+    description:
       "Heavy French terry fleece hoodie treated with a custom wash process for an authentic worn-in texture.",
     image: "images/hoodie.png",
   },
 ];
 
+// Globalni brojac za broj proizvoda u korpi
 let counter = 0;
 
+// Cekamo da se DOM ucita
 document.addEventListener("DOMContentLoaded", () => {
+  // Selektovanje productContainer-a i cartCounter
   const productContainer = document.getElementById("product-container");
   const cartCounter = document.getElementById("cart-counter");
 
+  // Prolazimo kroz niz proizvoda
   products.forEach((product) => {
     // Kreiranje kartice
     const card = document.createElement("div");
@@ -76,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Kreiranje slike
     const img = document.createElement("img");
     img.src = product.image;
-    // img.alt = product.name;
+    img.alt = product.name;
     img.className = "product-img";
 
     // Ime proizvoda
@@ -95,20 +100,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // Dugme za dodavanje u korpu
     const btn = document.createElement("button");
     btn.className = "add-to-cart-btn";
-    btn.href = "#";
     btn.textContent = "Add to Cart";
 
-    btn.addEventListener("click", (e) => {
-      e.stopImmediatePropagation();
+    // Pratimo klik na dugme add to cart
+    btn.addEventListener("click", () => {
       counter++;
       cartCounter.textContent = "Cart " + "(" + counter + ")";
     });
 
+    // Dodavanje elemenata u card
     card.appendChild(img);
     card.appendChild(productName);
     card.appendChild(price);
     card.appendChild(btn);
 
+    // Dodavanje card elementa u productContainer
     productContainer.appendChild(card);
   });
 });
